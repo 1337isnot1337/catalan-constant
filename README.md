@@ -10,7 +10,7 @@ $$
 
 Precisely, $|G-p/q|>q^{-528.23288}$ for every integer $p$ and every sufficiently large positive integer $q$.
 
-The proof reuses Sean Litsey's determinant construction, arithmetic estimates, nonvanishing theorem, and energy witnesses. It adds a different quadrature node construction and exact rational certificates. This is **not a new Lean formalization**. The complete upstream Lean development has not been rebuilt here, and this result has not been submitted to or verified by the leaderboard.
+The proof reuses Sean Litsey's determinant construction, arithmetic estimates, nonvanishing theorem, and energy witnesses. It adds a different quadrature node construction and exact rational certificates. A Lean formalization is in progress. The complete bound has **not yet been checked in Lean** or submitted to the leaderboard.
 
 | Result | Upper bound |
 |---|---:|
@@ -62,6 +62,11 @@ The build configuration pins Lean 4.34.1 and the verifier's Mathlib revision.
 A submission will identify a full commit and the strongest bound proved by
 its checked `Race.bound` theorem. The written bound and formal submission
 status are tracked separately.
+
+The [formalization progress record](proofs/lean_progress.md) lists the compiled
+components. In particular, the general inverse-image quadrature theorem and
+the three exact tangent-circle comparisons compile with the pinned verifier
+toolchain. This is component-level verification, not a completed `Race.bound`.
 
 ## Reproduce the certificates
 

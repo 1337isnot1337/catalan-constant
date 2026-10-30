@@ -1,9 +1,5 @@
-module
-
-public import Submission.CatalanStatement
-public import Mathlib.Tactic.NormNum
-
-@[expose] public section
+import Submission.CatalanStatement
+import Mathlib.Tactic.NormNum
 
 /-!
 # Bridge from a fixed endpoint inequality to the verifier target

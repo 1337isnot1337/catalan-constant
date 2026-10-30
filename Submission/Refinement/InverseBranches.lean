@@ -137,7 +137,7 @@ theorem sub_C_factorization (hdeg : p.natDegree = m) (hm : 0 < m)
     (y : ℝ) (hy : y ∈ Icc (-1 : ℝ) 1) :
     p - C y = C (p - C y).leadingCoeff *
       ∏ i : Fin m, (X - C (cert.root y hy i)) := by
-  apply factorization_of_distinct_roots (cert.sub_C_ne_zero hdeg hm y)
+  apply factorization_of_distinct_roots (sub_C_ne_zero hdeg hm y)
     (by rw [natDegree_sub_C, hdeg]) _ (cert.root_injective y hy)
   intro i
   rw [eval_sub, eval_C, cert.eval_root y hy i, sub_self]
@@ -149,7 +149,7 @@ theorem eq_root_of_eval_mem (hdeg : p.natDegree = m) (hm : 0 < m)
     ∃ i : Fin m, x = cert.root (p.eval x) hx i := by
   classical
   have hc : (p - C (p.eval x)).leadingCoeff ≠ 0 :=
-    leadingCoeff_ne_zero.mpr (cert.sub_C_ne_zero hdeg hm _)
+    leadingCoeff_ne_zero.mpr (sub_C_ne_zero hdeg hm _)
   have hz : (p - C (p.eval x)).eval x = 0 := by simp
   rw [cert.sub_C_factorization hdeg hm (p.eval x) hx,
     eval_mul, eval_C, eval_prod] at hz
@@ -157,12 +157,13 @@ theorem eq_root_of_eval_mem (hdeg : p.natDegree = m) (hm : 0 < m)
   obtain ⟨i, _, hi⟩ := Finset.prod_eq_zero_iff.mp hzprod
   exact ⟨i, by simpa only [eval_sub, eval_X, eval_C, sub_eq_zero] using hi⟩
 
+include cert in
 theorem derivative_ne_zero (hdeg : p.natDegree = m) (hm : 0 < m)
     (x : ℝ) (hx : p.eval x ∈ Icc (-1 : ℝ) 1) :
     (derivative p).eval x ≠ 0 := by
   obtain ⟨i, hi⟩ := cert.eq_root_of_eval_mem hdeg hm x hx
   have hc : (p - C (p.eval x)).leadingCoeff ≠ 0 :=
-    leadingCoeff_ne_zero.mpr (cert.sub_C_ne_zero hdeg hm _)
+    leadingCoeff_ne_zero.mpr (sub_C_ne_zero hdeg hm _)
   have hder := derivative_ne_zero_of_distinct_nodal
     (cert.root_injective (p.eval x) hx) hc
     (cert.sub_C_factorization hdeg hm (p.eval x) hx) i

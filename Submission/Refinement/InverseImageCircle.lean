@@ -59,7 +59,9 @@ theorem inverseImagePolynomial_circle_le {p : ℝ[X]} {d h m N K : ℕ}
       ‖(1 : ℂ) - z‖ ^ (h * N) ≤ C * Real.exp (wc * N) := by
   let A : ℝ := 2 * ‖(p.map (algebraMap ℝ ℂ)).eval z‖ + 1
   let F : ℝ := ‖(1 : ℂ) - z‖
-  have hA1 : 1 ≤ A := by dsimp [A]; positivity
+  have hA1 : 1 ≤ A := by
+    dsimp [A]
+    linarith only [norm_nonneg ((p.map (algebraMap ℝ ℂ)).eval z)]
   have hA0 : 0 ≤ A := zero_le_one.trans hA1
   have hF0 : 0 ≤ F := norm_nonneg _
   have hAC : A ≤ C := hC z hz

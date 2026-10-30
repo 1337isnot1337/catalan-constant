@@ -24,8 +24,10 @@ theorem log_two_bounds : logTwoLo ≤ Real.log 2 ∧ Real.log 2 ≤ logTwoHi := 
   have h := barrier_logH_remainder_uniform (y := 2) ⟨by norm_num, le_rfl⟩
   have hv : barrierLogH 2 =
       (5796068539909855793494541848 : ℝ) / 8361959339180483840538659925 := by
-    rw [← barrierLogHRat_cast (2 : ℚ), barrierLogHRat_two_eq]
-    norm_num
+    have hcast := barrierLogHRat_cast (2 : ℚ)
+    rw [barrierLogHRat_two_eq] at hcast
+    norm_num at hcast
+    exact hcast.symm
   rw [hv] at h
   constructor
   · have hl : logTwoLo ≤

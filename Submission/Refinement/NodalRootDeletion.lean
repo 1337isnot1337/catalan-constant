@@ -34,7 +34,7 @@ theorem retainedNodes_injective {J S : ℕ} {τ : Fin (J + S) → ℝ}
     (hτ : Function.Injective τ) : Function.Injective (retainedNodes τ) := by
   intro i j hij
   apply Fin.ext
-  exact congrArg Fin.val (hτ hij)
+  exact congrArg (fun a : Fin (J + S) => a.val) (hτ hij)
 
 theorem retained_removed_factorization {J S : ℕ} (τ : Fin (J + S) → ℝ) (c : ℝ) :
     C c * ∏ i : Fin (J + S), (X - C (τ i)) =

@@ -49,8 +49,9 @@ theorem inverseImageNodePair_injective {p : ℝ[X]} {m : ℕ} {G : ℝ → Prop}
   rcases j with ⟨j₁, j₂⟩
   dsimp only at hfirst
   subst j₁
-  apply Prod.ext rfl
-  exact cert.root_injective _ _ hij
+  apply Prod.ext
+  · rfl
+  · exact cert.root_injective _ _ hij
 
 theorem inverseImageNodes_injective {p : ℝ[X]} {m : ℕ} {G : ℝ → Prop}
     (cert : InverseBranchCertificate p m G) (K : ℕ) :
@@ -62,7 +63,9 @@ theorem inverseImageNodes_support {p : ℝ[X]} {m : ℕ} {G : ℝ → Prop}
     (cert : InverseBranchCertificate p m G) (K : ℕ) (i : Fin (K * m)) :
     inverseImageNodes cert K i ∈ Ioo (-1 : ℝ) 1 ∧
       inverseImageNodes cert K i ≠ 0 ∧ G (inverseImageNodes cert K i) :=
-  cert.root_support _ _ _
+  cert.root_support _
+    (Ioo_subset_Icc_self (CatalanMeasure.chebX_mem
+      ((finProdFinEquiv : Fin K × Fin m ≃ Fin (K * m)).symm i).1)) _
 
 theorem inverseImagePolynomial_natDegree {p : ℝ[X]} {m : ℕ}
     (hdeg : p.natDegree = m) (K : ℕ) :
@@ -116,7 +119,8 @@ theorem inverseImagePolynomial_derivative_uniform {p : ℝ[X]} {m : ℕ} {G : �
     d ≤ |(derivative (inverseImagePolynomial p K)).eval (inverseImageNodes cert K i)| := by
   have hK1 : (1 : ℝ) ≤ K := by exact_mod_cast hK
   have hmul := mul_le_mul_of_nonneg_left hK1 hd0.le
-  exact (by simpa using hmul).trans (inverseImagePolynomial_derivative_ge cert hd K i)
+  have hmul' : d ≤ d * K := by simpa using hmul
+  exact hmul'.trans (inverseImagePolynomial_derivative_ge cert hd K i)
 
 /-- A convenient elementary bound with no choice of complex square root. -/
 theorem norm_chebyshev_eval_le_simple (K : ℕ) (z : ℂ) :

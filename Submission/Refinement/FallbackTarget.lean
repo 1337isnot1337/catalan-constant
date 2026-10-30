@@ -1,9 +1,5 @@
-module
-
-public import Submission.Refinement.EndpointBridge
-public import Submission.Refinement.Fallback5318833
-
-@[expose] public section
+import Submission.Refinement.EndpointBridge
+import Submission.Refinement.Fallback5318833
 
 /-! Named fallback target. The root Submission.lean selects the strongest compiled result. -/
 
