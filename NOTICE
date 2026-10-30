@@ -1,0 +1,19 @@
+This project studies upper bounds on the irrationality exponent of Catalan's constant.
+
+The determinant construction and its original irrationality proof are due to
+OpenAI (2026). The design (58,9,3,5,3), the uniform nonvanishing and denominator
+theorems, the 102-piece rank-deficiency profile, the trial sequences, and the
+generic quadrature and energy lemmas used here come from Sean Litsey's
+catalan-irrationality-measure repository, under Apache License 2.0.
+
+Upstream repository: https://github.com/slitsey/catalan-irrationality-measure
+Pinned revision: aa2a42f4f3835347ad46608779e22dd52c2dc7bf
+
+certificates/rank_profile.json transcribes the wins532 data from
+CatalanMeasure/GenD/Uniform/Bank532/Ledger532.lean. It does not replace the
+upstream proof that these functions bound the prime-by-prime nullities.
+
+New code in scripts/ checks the new rational certificates and numerical
+implications. These scripts are not Lean kernel checks of the complete proof.
+
+See LICENSE for the Apache License 2.0.
