@@ -27,6 +27,11 @@ Mathlib revision `d13f23b723b8a846827a245b89c10fc7d3f11612`:
 - The second-energy argument with this eventual near-field hypothesis.
 - The complete concrete degree-130 quadrature, including all level signs,
   the trimmed coordinate support, and weights at exponent 52.184351.
+- The full trimmed residual cover: 98 exact Taylor cells in 54 checked
+  modules, including the aggregate `residual_sup_trimmed` theorem.
+- The generic eventual determinant-decay transfer in `DecayEventually`.
+- All six inherited finite norm blocks and the first two logarithmic norm
+  blocks, with ordinary kernel checking.
 
 The finite comparisons use kernel reduction (`decide +kernel`). The printed
 axioms for the complete circle bound, real exponential bound, and factor positivity theorem are
@@ -40,8 +45,13 @@ The generic inequality follows from `1 + t ≤ exp t`.
 
 ## Remaining assembly
 
-The trimmed residual field, inherited arithmetic proof, determinant decay
-estimate, and canonical target are undergoing their complete kernel build.
+The remaining inherited row, column, residual, and logarithmic norm
+certificates, the arithmetic proof, and the concrete final assembly are
+undergoing their complete kernel build. The new trimmed residual field and
+generic eventual decay theorem have already passed. The local build separates
+the lower-memory field covers from the heavier logarithmic norm checks;
+the latter also have the guarded source ordering described in
+[`verifier_resources.md`](verifier_resources.md).
 The final entrypoint is written and has no analytic hypothesis. Its presence
 in the repository does not establish the final bound in Lean until that build
 and axiom audit succeed.
