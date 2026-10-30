@@ -3,6 +3,7 @@ module
 public import Submission.CatalanMeasure.CellCert.NormClosed
 public import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogBounds
 public import Submission.CatalanMeasure.GenD.D58.Cert590.Data
+public import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogV0
 
 @[expose] public section
 

@@ -42,7 +42,143 @@
         "before": "rw [\u2190 hmat, abs_det_submatrix_equiv, pairMeasure_real_univ] at hdet",
         "after": "rw [\u2190 hmat, atom_abs_det_submatrix_equiv, atom_pairMeasure_real_univ] at hdet"
       }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogP2": [
+      {
+        "id": "norm-log-two-chain-NormLogP2",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogP0"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogP3": [
+      {
+        "id": "norm-log-two-chain-NormLogP3",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogP1"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogP4": [
+      {
+        "id": "norm-log-two-chain-NormLogP4",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogP2"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogP5": [
+      {
+        "id": "norm-log-two-chain-NormLogP5",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogP3"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogP6": [
+      {
+        "id": "norm-log-two-chain-NormLogP6",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogP4"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogV0": [
+      {
+        "id": "norm-log-two-chain-NormLogV0",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogP5"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogV1": [
+      {
+        "id": "norm-log-two-chain-NormLogV1",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogP6"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogV2": [
+      {
+        "id": "norm-log-two-chain-NormLogV2",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogV0"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogV3": [
+      {
+        "id": "norm-log-two-chain-NormLogV3",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogV1"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogV4": [
+      {
+        "id": "norm-log-two-chain-NormLogV4",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogV2"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogV5": [
+      {
+        "id": "norm-log-two-chain-NormLogV5",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogV3"
+      }
+    ],
+    "CatalanMeasure.GenD.D58.Cert590.NormLogV6": [
+      {
+        "id": "norm-log-two-chain-NormLogV6",
+        "reason": "Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.",
+        "before": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data",
+        "after": "public import Submission.CatalanMeasure.GenD.D58.Cert590.Data\npublic import Submission.CatalanMeasure.GenD.D58.Cert590.NormLogV4"
+      }
     ]
+  },
+  "norm_log_build_schedule": {
+    "ordered_modules": [
+      "CatalanMeasure.GenD.D58.Cert590.NormLogP0",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogP1",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogP2",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogP3",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogP4",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogP5",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogP6",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogV0",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogV1",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogV2",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogV3",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogV4",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogV5",
+      "CatalanMeasure.GenD.D58.Cert590.NormLogV6"
+    ],
+    "chains": [
+      [
+        "CatalanMeasure.GenD.D58.Cert590.NormLogP0",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogP2",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogP4",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogP6",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogV1",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogV3",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogV5"
+      ],
+      [
+        "CatalanMeasure.GenD.D58.Cert590.NormLogP1",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogP3",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogP5",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogV0",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogV2",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogV4",
+        "CatalanMeasure.GenD.D58.Cert590.NormLogV6"
+      ]
+    ],
+    "maximum_concurrent_norm_log_modules": 2,
+    "change": "For each index i >= 2, add an import of index i - 2; no theorem, proof or witness text changes."
   },
   "files": [
     {
@@ -793,74 +929,110 @@
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogP2.lean",
       "source_sha256": "24e2b4234d7f0075355de548c24fc66bbfef64517034d8a2bba81dd990c45799",
-      "converted_sha256": "b1edb172333413c0499ce9a815f4c5567657b38888a28bde145d0d3a9a545e4a",
-      "bytes": 1211
+      "converted_sha256": "bf21df3dbd5a6bced91ab372362c7bcf6c29a853d8f1e4d00cfa7f3eed476918",
+      "bytes": 1278,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogP2"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogP3.lean",
       "source_sha256": "1c9cc9acee695876cbcf94338c29d57212cbf2981e6bf79c4bbcabb6fd5fbab8",
-      "converted_sha256": "57152898211b083948d965c7017d1385a2439036b30de2e9ca7d069dbb607b22",
-      "bytes": 1211
+      "converted_sha256": "7a28991d5c90c4909038d4d630e454fdaadf8ad13e406f4bb6cf41a1fb670c55",
+      "bytes": 1278,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogP3"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogP4.lean",
       "source_sha256": "2e497875385ca2342c6361e6afa0b4b408a263b1986914268546de502ad199ec",
-      "converted_sha256": "cc3a7a67a8671bdcc4eebbf560a11f497d1b7aeedee2e6ab0d37c12d855f5f0a",
-      "bytes": 1086
+      "converted_sha256": "8f189e8608dc824395fb52a3499c7d2963008d898e23172d72707bd2c3abe170",
+      "bytes": 1153,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogP4"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogP5.lean",
       "source_sha256": "5464400ea7c6b95476b84bd7376023c8b80544957f37bf0d9de4fd2a166ca4a6",
-      "converted_sha256": "b2b6200d76dc52b7fb60ec461e501743e4466cd7bbdd22f05b1b51926666ecea",
-      "bytes": 1086
+      "converted_sha256": "c52badbacc571453f0c7e8e5844403a3f2a5fc2b822293ab7c84e98a3476170b",
+      "bytes": 1153,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogP5"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogP6.lean",
       "source_sha256": "2387efd97ce7ccde5a82518cd922884f8ec97ac4220bf8689bdfcbfe8c038000",
-      "converted_sha256": "e5933e7f915a4063d9d488a212f335f2f233e1a9b7f5fea72286dc93c114c5a4",
-      "bytes": 961
+      "converted_sha256": "9048635105986286446509c863b10fd82e15bd1264496f378eb98155848bf3e1",
+      "bytes": 1028,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogP6"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogV0.lean",
       "source_sha256": "38d5a3a80f4f8f933c2cba77ffe1fce009dbed03d51e7e23c6a05021833c1c26",
-      "converted_sha256": "403391935c2ea8e0ad19caf4a28b615dddced5cf3859cd4796b7528bae902579",
-      "bytes": 1193
+      "converted_sha256": "139a6404956a88394d46d9ebaf61dc9a7c9b9b314ff60d2f61a4365ef811a273",
+      "bytes": 1260,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogV0"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogV1.lean",
       "source_sha256": "99a885676c243b1530ef3bfce563db7c7a682b4ccee0effad7f1554100105e6e",
-      "converted_sha256": "5bae0f2df6c4e99bcda19f51acf0ed78a1708075c0947ccac257b8a1820b3793",
-      "bytes": 1199
+      "converted_sha256": "515076827e2bf2297cade909e68d97da22c33a88d84d06c18e8cc997056bfd30",
+      "bytes": 1266,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogV1"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogV2.lean",
       "source_sha256": "fb06bd6de4ef939bb214f767b0cc41e0fcc02b255a4dab0129923f90e0b3630d",
-      "converted_sha256": "1bf9b9213f1cfcf8a9253a92b52721408c7e80a658f76cf098e1ff7f205d1969",
-      "bytes": 1211
+      "converted_sha256": "59db230ba462c22416c7174a9f9ea026ee969a9facedb757420081607457c751",
+      "bytes": 1278,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogV2"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogV3.lean",
       "source_sha256": "88878765ebdd5c4f521d9dd081349d60179d21bfefc55096b9baabe333d1ba7c",
-      "converted_sha256": "68c0926ae393964d87b39956fd061bc73070ce3a4248ce64256b8a3420132292",
-      "bytes": 1211
+      "converted_sha256": "60d507ce7b375c3cafa3ce08406cdf2e2a6473b67eb750ea214d4932c6f4b593",
+      "bytes": 1278,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogV3"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogV4.lean",
       "source_sha256": "12b38a6b9060f4bd73aed803d03c30f3a56097372116df49c73bd54865db53e1",
-      "converted_sha256": "09b8f7ed9c83915b7df7b00751d4ab3ba7a472065d6dab70b51da0defaa92083",
-      "bytes": 1086
+      "converted_sha256": "9f447cb352ea42d588dd7ebd39cb7505508589a2d8a45f9410bfe17dbf0017b8",
+      "bytes": 1153,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogV4"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogV5.lean",
       "source_sha256": "07bfbb3381673e86aa07eaf655024b9757b45f32703894fb353df12f62ea0b16",
-      "converted_sha256": "4d4005f22334ce384b0468e09d2263b69fa975783cf95f9a3f7c5b454c734880",
-      "bytes": 1086
+      "converted_sha256": "1a87b02dea3cb9fea0eeb57ea91fcceb747b61f0bc5fd1f72da33dcdd13a44f4",
+      "bytes": 1153,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogV5"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormLogV6.lean",
       "source_sha256": "770d131c5c1b25602f20660b05a51291992d6aa49df55de9234a1e23eba871f7",
-      "converted_sha256": "9cc00d1d69ad479ed802b5a6489e845badd52e158250c7e1ed7c945ad86c3830",
-      "bytes": 961
+      "converted_sha256": "c3b10847dbb5cedb3fae21500bb645709e1d0618bd7ae12459ffefe6f7385892",
+      "bytes": 1028,
+      "compatibility_patches": [
+        "norm-log-two-chain-NormLogV6"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/D58/Cert590/NormP.lean",
