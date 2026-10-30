@@ -8,6 +8,18 @@
   "conversion": "Prefix imports of vendored roots with Submission.",
   "files": [
     {
+      "path": "CatalanCore/Uniform/Content/RankCertificate.lean",
+      "source_sha256": "9e92fdb26b26d97c5804a789d0c9ca46f303f43d46994b34dbe4046c068a03e7",
+      "converted_sha256": "9e92fdb26b26d97c5804a789d0c9ca46f303f43d46994b34dbe4046c068a03e7",
+      "bytes": 3063
+    },
+    {
+      "path": "CatalanCore/Uniform/Content/RankLayer.lean",
+      "source_sha256": "2ce9b6cc3c262356f25ceb5f3b1b5d55859082fdebfd3f35ea55f0e81f456a0d",
+      "converted_sha256": "2ce9b6cc3c262356f25ceb5f3b1b5d55859082fdebfd3f35ea55f0e81f456a0d",
+      "bytes": 6011
+    },
+    {
       "path": "CatalanMeasure/AveragedEnergyAlgebra.lean",
       "source_sha256": "fcb53b8726439f5017b3690f4b70faaf5a3d904ed0e43512a8ce253d686ea517",
       "converted_sha256": "fcb53b8726439f5017b3690f4b70faaf5a3d904ed0e43512a8ce253d686ea517",
@@ -3634,14 +3646,14 @@
     {
       "path": "CatalanMeasure/GenD/Uniform/W/Profile.lean",
       "source_sha256": "d9703f4ae81d6809bcc7d13b04bc96cea49b07de303a9cde413e017d79bfaa86",
-      "converted_sha256": "3258f23a7a0e2606a797d817c947569610f1458c44c4797726d267675bc6a919",
-      "bytes": 6627
+      "converted_sha256": "270dfad04c005fb391979e5eab9af25a1841cecde75434548919f2e47c8235a5",
+      "bytes": 6638
     },
     {
       "path": "CatalanMeasure/GenD/Uniform/W/RankStep.lean",
       "source_sha256": "bd66391181f4c2a3152267f5f553b7caf5f96bce7af996fb78011f42fd453f46",
-      "converted_sha256": "b783a3e191d4ef9dd06ce24b82706a5fb82225054b0e9f398fbf2b5b03e6d9b8",
-      "bytes": 6919
+      "converted_sha256": "5accaf9cbde37197fe195534a6ec3505bb81ce91e0cd9bba0ba36e1795855654",
+      "bytes": 6930
     },
     {
       "path": "CatalanMeasure/GenD/Uniform/W/Slots/All.lean",

@@ -1,6 +1,6 @@
 module
 public import Submission.CatalanMeasure.GenD.Uniform.W.Jets
-public import CatalanCore.Uniform.Content.RankCertificate
+public import Submission.CatalanCore.Uniform.Content.RankCertificate
 public import Submission.OAI.NumberTheory.Catalan.FiniteMatrices.FixedDeterminantGoodPrimes
 public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 public import Mathlib.Data.ZMod.Basic

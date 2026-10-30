@@ -1,6 +1,6 @@
 module
 public import Submission.CatalanMeasure.GenD.Uniform.W.Jets
-public import CatalanCore.Uniform.Content.RankLayer
+public import Submission.CatalanCore.Uniform.Content.RankLayer
 @[expose] public section
 set_option Elab.async false
 
