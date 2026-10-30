@@ -32,6 +32,25 @@ when two residual compilers, three arithmetic jobs, and a helper check overlappe
 locally. The heavy arithmetic cells were then retried sequentially. This is a
 concrete reason to bound overlapping local build jobs.
 
+The final local run reported an 8 GiB cgroup memory limit. During a later
+three-worker pass, the inherited `NormLogP1` certificate was also killed with
+exit status 137. The remaining build was restarted with `LEAN_NUM_THREADS=1`.
+This local resource failure is distinct from the hosted verifier's 14G limit;
+it does not report a failed mathematical assertion.
+
+The norm checks reached about 3.66 GiB RSS, including about 1.18 GiB of stable
+file-backed mappings that can be shared. An overlap projection using the local
+baseline was `4 * (3.66 - 1.18) + 1.18 + 1.8 + 0.36 = 13.26` GiB. It aligns
+four private-memory peaks, counts the common mappings once, and adds about
+1.8 GiB of other anonymous and nonreclaimable kernel memory plus 0.36 GiB of
+other mappings. The resulting estimate of about 13.3 GiB leaves little room
+under the hosted limit. It is not a measured hosted peak or a certified upper
+bound; the V-file peaks have not yet been measured.
+
+The source therefore now constrains this particular heavy layer to two
+dependency chains. `NormLogP0` and `NormLogP1` both completed before this
+scheduling change.
+
 Four residual compilers at the observed maximum would account for about
 8.13 GiB of summed RSS, or about 9 GiB including the observed Lake-controller
 peak. A heavier mixed wave with two arithmetic compilers at 3.1 GiB each and two
@@ -55,15 +74,19 @@ workers when a task waits on another task. The verifier itself documents this
 behavior. A hard concurrency guarantee therefore does not follow from the
 number four alone.
 
-The present separate-module layout is retained on the measured evidence. If a
-concrete later peak threatens the hosted limit, an ordinary source dependency
-layout can restrict concurrency: for example, block `i` can import block
-`i-2`, producing two independent chains. Such a change preserves every theorem
-statement, finite witness, and kernel check, but adds sequential build time and
-larger per-module import closures. It should not be applied without accounting
-for that tradeoff.
+The residual block layout remains unchanged. The inherited norm layer uses
+the flattened order `NormLogP0` through `NormLogP6`, then `NormLogV0` through
+`NormLogV6`. Each file at index `i >= 2` imports file `i - 2`. Consequently,
+at most two of these fourteen heavy norm modules can compile simultaneously,
+regardless of the number of Lake workers. Other independent modules can still
+compile concurrently, so this is not a bound on total build memory.
 
-The completed hosted receipt remains the evidence that the full proof fits
+The twelve new imports preserve every theorem statement, definition, proof
+body, finite witness, and kernel check. They add sequential build time and
+larger import closures for later norm files. The exact guarded changes are
+documented in [the dependency audit](dependency_refactors.md).
+
+A successful hosted run is still needed to establish that the full proof fits
 the verifier's actual limits.
 
 ## Primary sources

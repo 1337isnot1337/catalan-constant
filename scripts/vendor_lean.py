@@ -45,6 +45,22 @@ COMPATIBILITY_PATCHES = {
     }],
 }
 
+NORM_LOG_MODULES = [
+    f'CatalanMeasure.GenD.D58.Cert590.NormLog{trial}{index}'
+    for trial in ('P', 'V') for index in range(7)
+]
+NORM_LOG_IMPORT_ANCHOR = 'public import Submission.CatalanMeasure.GenD.D58.Cert590.Data'
+for index, module in enumerate(NORM_LOG_MODULES):
+    if index < 2:
+        continue
+    dependency = NORM_LOG_MODULES[index - 2]
+    COMPATIBILITY_PATCHES.setdefault(module, []).append({
+        'id': f'norm-log-two-chain-{module.rsplit(".", 1)[-1]}',
+        'reason': 'Import the module two positions earlier in the ordered P0..P6,V0..V6 list to limit concurrent norm-log checks to two; theorem statements, proof scripts and witnesses are unchanged.',
+        'before': NORM_LOG_IMPORT_ANCHOR,
+        'after': NORM_LOG_IMPORT_ANCHOR + '\npublic import Submission.' + dependency,
+    })
+
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -83,7 +99,8 @@ def vendor(source, output):
         transformed = converted.encode()
         target = output / 'Submission' / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(transformed)
+        if not target.exists() or target.read_bytes() != transformed:
+            target.write_bytes(transformed)
         item = {'path': str(relative), 'source_sha256': sha(original),
                 'converted_sha256': sha(transformed), 'bytes': len(transformed)}
         if patches:
@@ -93,6 +110,12 @@ def vendor(source, output):
               'source_commit': UPSTREAM_COMMIT, 'root_modules': ROOT_MODULES,
               'conversion': 'Prefix imports of vendored roots with Submission.',
               'compatibility_patches': COMPATIBILITY_PATCHES,
+              'norm_log_build_schedule': {
+                  'ordered_modules': NORM_LOG_MODULES,
+                  'chains': [NORM_LOG_MODULES[::2], NORM_LOG_MODULES[1::2]],
+                  'maximum_concurrent_norm_log_modules': 2,
+                  'change': 'For each index i >= 2, add an import of index i - 2; no theorem, proof or witness text changes.',
+              },
               'files': sorted(manifest, key=lambda x: x['path'])}
     (output / 'certificates/lean_source_manifest.json').write_text(json.dumps(record, indent=2) + '\n')
     print(f'Copied {len(manifest)} files, {sum(x["bytes"] for x in manifest)} bytes')

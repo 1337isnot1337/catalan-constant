@@ -35,6 +35,11 @@ Submission/Improvement/Fields/AtomMeasureFacts.lean. These helpers preserve
 the upstream denominator, determinant, and measure arguments while avoiding
 unrelated fixed-design numerical developments. The guarded converter records
 the import and lemma-name changes; all generic theorem statements are unchanged.
+A further import-only scheduling change orders the fourteen inherited NormLogP
+and NormLogV modules into two dependency chains. It preserves every theorem,
+definition, and finite witness while limiting simultaneous heavy norm checks.
+The converter guards each of the twelve added imports and records them in the
+provenance manifest. See proofs/dependency_refactors.md for the exact order.
 The original upstream NOTICE is preserved in third_party/UPSTREAM_NOTICE.
 New modules under Submission/Refinement/ and Submission/Improvement/ are
 additions in this repository. The trusted CatalanStatement.lean is copied

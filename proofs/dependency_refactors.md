@@ -42,3 +42,24 @@ The two dependency refactors reduce the reachable local module count from
 1,411 to 1,135 at this checkpoint. The original upstream files remain available
 in the vendored tree for provenance. These changes reduce build work; they
 neither assume nor weaken a mathematical premise.
+
+## Norm-certificate build order
+
+The fourteen inherited files `NormLogP0` through `NormLogP6`, followed by
+`NormLogV0` through `NormLogV6`, are indexed in that order. For each index
+`i >= 2`, file `i` now imports file `i - 2`. This creates two independent
+dependency chains rooted at `NormLogP0` and `NormLogP1`; the two root files
+remain unchanged. The chains cross from P files to V files according to the
+flattened order.
+
+These twelve guarded import additions restrict concurrent compilation of the
+heavy norm certificates to at most two modules. They change no theorem,
+definition, proof body, or finite witness. They also leave the reachable source
+set unchanged: every predecessor was already part of the target's dependency
+closure. The cost is additional sequential build time and larger import
+closures for later files. The converter records the additions and both file
+hashes in the same provenance manifest.
+
+The change responds to measured memory pressure during compilation, described
+in [the resource audit](verifier_resources.md). It changes build scheduling
+through ordinary Lean imports and preserves all kernel checks.
