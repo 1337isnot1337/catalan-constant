@@ -12,7 +12,7 @@ ROOT_MODULES = [
     'CatalanMeasure.GenD.Uniform.Bank532.Hosts532Inst',
     'CatalanMeasure.GenD.Analytic.GapWeights',
 ]
-VENDORED_ROOTS = {'CatalanMeasure', 'OAI', 'PrimeNumberTheoremAnd'}
+VENDORED_ROOTS = {'CatalanMeasure', 'CatalanCore', 'OAI', 'PrimeNumberTheoremAnd'}
 IMPORT = re.compile(r'^(\s*(?:(?:public|private|meta)\s+)*import\s+)(.+)$')
 
 
