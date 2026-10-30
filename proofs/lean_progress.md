@@ -25,6 +25,8 @@ Mathlib revision `d13f23b723b8a846827a245b89c10fc7d3f11612`:
 - The eventual grouped near-field bound, including the correction at
   finite scale and the threshold N >= 10^7.
 - The second-energy argument with this eventual near-field hypothesis.
+- The complete concrete degree-130 quadrature, including all level signs,
+  the trimmed coordinate support, and weights at exponent 52.184351.
 
 The finite comparisons use kernel reduction (`decide +kernel`). The printed
 axioms for the complete circle bound, real exponential bound, and factor positivity theorem are
@@ -38,10 +40,11 @@ The generic inequality follows from `1 + t ≤ exp t`.
 
 ## Remaining assembly
 
-The all-level quadrature wrapper, trimmed residual field, determinant decay
-estimate, and canonical target must be connected and built together. Some of
-these modules are still being checked. Their presence in the repository does
-not establish the final bound in Lean.
+The trimmed residual field, inherited arithmetic proof, determinant decay
+estimate, and canonical target are undergoing their complete kernel build.
+The final entrypoint is written and has no analytic hypothesis. Its presence
+in the repository does not establish the final bound in Lean until that build
+and axiom audit succeed.
 
 The submission gate is a successful `lake build Submission`, an allowed-axiom
 audit of the unconditional `Race.bound`, and a full published commit SHA.

@@ -39,6 +39,9 @@ An exact Bernstein certificate gives the quadrature weight exponent $52.184351$.
 
 - [Current theorem and exact scalar conditions](proofs/result_52823288.md).
 - [Trimmed support and eventual near-field argument](proofs/trimmed_support.md).
+- [Three-tangent circle certificate](proofs/root_tangent_circle.md).
+- [Lean inverse-image quadrature construction](proofs/lean-inverse-image-quadrature.md).
+- [Lean residual certificate reproduction](docs/lean-residual-certificate.md).
 - [Earlier degree-107 theorem](proofs/result_52924599.md).
 - [Earlier degree-53 theorem](proofs/result_5306705.md).
 - [Polynomial inverse-image quadrature](proofs/inverse_image_quadrature.md).

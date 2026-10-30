@@ -2,7 +2,21 @@ name: Verify exact certificates
 
 on:
   push:
+    paths:
+      - '.github/workflows/verify.yml'
+      - 'scripts/**'
+      - '!scripts/vendor_lean.py'
+      - '!scripts/check_lean.py'
+      - 'certificates/**'
+      - '!certificates/lean_source_manifest.json'
   pull_request:
+    paths:
+      - '.github/workflows/verify.yml'
+      - 'scripts/**'
+      - '!scripts/vendor_lean.py'
+      - '!scripts/check_lean.py'
+      - 'certificates/**'
+      - '!certificates/lean_source_manifest.json'
   workflow_dispatch:
 
 permissions:
