@@ -10,7 +10,7 @@ $$
 
 Precisely, $|G-p/q|>q^{-528.23288}$ for every integer $p$ and every sufficiently large positive integer $q$.
 
-The proof reuses Sean Litsey's determinant construction, arithmetic estimates, nonvanishing theorem, and energy witnesses. It adds a different quadrature node construction and exact rational certificates. A Lean formalization is in progress. The complete bound has **not yet been checked in Lean** or submitted to the leaderboard.
+The proof reuses Sean Litsey's determinant construction, arithmetic estimates, nonvanishing theorem, and energy witnesses. It adds a different quadrature node construction and exact rational certificates. The Lean source now includes the unconditional target theorem. The full local kernel build and its final axiom audit are **still in progress**. This is a **Claimed** result until the official verifier accepts it.
 
 | Result | Upper bound |
 |---|---:|
@@ -53,23 +53,41 @@ The argument relies on cited upstream mathematical theorems. The scripts check t
 
 ## Lean submission work
 
-Formalization is in progress for the [Big O Speedrun verifier](https://github.com/bigospeedrun/verifier).
-The new draft modules are under `Submission/Refinement/` and
-`Submission/Improvement/`; they are not yet a completed, checked proof of
-the displayed bound. The verifier's canonical statement is copied unchanged
+The source is prepared for the [Big O Speedrun verifier](https://github.com/bigospeedrun/verifier).
+The new modules are under `Submission/Refinement/` and
+`Submission/Improvement/`. The entrypoint `Submission.lean` states
+`Race.bound : BigOSpeedrun.Catalan.Bound ((6602911 : ℚ) / 12500)`
+with no remaining hypotheses. Its complete kernel check is pending.
+The verifier's canonical statement is copied unchanged
 to `Submission/CatalanStatement.lean`. `scripts/vendor_lean.py` copies only
 the pinned upstream dependency closure and prefixes its imports for the
 required layout. The source manifest records original and converted hashes.
 
 The build configuration pins Lean 4.34.1 and the verifier's Mathlib revision.
-A submission will identify a full commit and the strongest bound proved by
-its checked `Race.bound` theorem. The written bound and formal submission
-status are tracked separately.
+A submission pins a full source commit and the exact rational bound
+`6602911/12500`. The official check can run in parallel with the local rebuild.
+The written result, local kernel status, and official acceptance are tracked
+separately. A source-layout audit checks paths and hashes; it does not establish
+the mathematical theorem.
 
 The [formalization progress record](proofs/lean_progress.md) lists the compiled
-components. In particular, the general inverse-image quadrature theorem and
-the three exact tangent-circle comparisons compile with the pinned verifier
-toolchain. This is component-level verification, not a completed `Race.bound`.
+components. These include the complete new quadrature construction, the sharp
+circle estimate, the eventual near field, all 98 trimmed residual cells, and
+the generic eventual determinant-decay transfer. The remaining inherited
+numerical and arithmetic dependencies and the concrete final assembly are
+being checked. The [check-status record](certificates/lean_check_status.json)
+records the pending full-build and final-axiom gates.
+
+To reproduce the complete Lean check with the pinned toolchain:
+
+```sh
+lake exe cache get
+LEAN_NUM_THREADS=1 lake build Submission
+```
+
+The entrypoint prints the axioms of `Race.bound`. The accepted logical axioms
+are `propext`, `Classical.choice`, and `Quot.sound`. The official verifier's
+passing receipt is required before calling this result **Lean Verified**.
 
 ## Reproduce the certificates
 

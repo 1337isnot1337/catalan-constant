@@ -1,8 +1,8 @@
 # Lean formalization progress
 
 The target is `BigOSpeedrun.Catalan.Bound (6602911 / 12500)`, representing
-the upper bound 528.23288. There is not yet a completed unconditional
-`Race.bound` theorem or a verifier submission issue.
+the upper bound 528.23288. The unconditional `Race.bound` source is written;
+its complete kernel build and final axiom audit are still pending.
 
 ## Compiled components
 
@@ -56,9 +56,12 @@ The final entrypoint is written and has no analytic hypothesis. Its presence
 in the repository does not establish the final bound in Lean until that build
 and axiom audit succeed.
 
-The submission gate is a successful `lake build Submission`, an allowed-axiom
-audit of the unconditional `Race.bound`, and a full published commit SHA.
-Only that concrete result will be sent through the verifier's submission issue.
+The final local validation gate is a successful `lake build Submission` and
+an allowed-axiom audit of the unconditional `Race.bound`. The official verifier
+can check a frozen, byte-audited source commit in parallel with this local
+rebuild. Submission alone does not establish the bound in Lean; the result
+remains Claimed until an official passing receipt is available. Source-layout
+and published-byte audits are recorded separately from proof checks.
 
 ## Written certificate checks
 

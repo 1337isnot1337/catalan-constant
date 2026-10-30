@@ -1,0 +1,17 @@
+{
+  "bound": "6602911/12500",
+  "bound_decimal": "528.23288",
+  "entrypoint": "Submission.lean",
+  "target": "Race.bound",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "canonical_statement_sha256": "9ba7370f1256ef680ccf674e653b5456735c478f9ac80fcffc90f130ac4a2ce6",
+  "canonical_verifier_revision_checked": "859d6949ef4bdcab4ba661d09cd7fd720d0c4960",
+  "local_full_build": "in_progress",
+  "local_final_axiom_audit": "pending",
+  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "official_submission": "candidate_prepared",
+  "official_verification": "pending",
+  "evidence_level": "Claimed",
+  "note": "Component checks and source-layout audits are not a completed kernel check of Race.bound. See proofs/lean_progress.md for the components already checked."
+}
