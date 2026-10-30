@@ -53,9 +53,9 @@ The argument relies on cited upstream mathematical theorems. The scripts check t
 
 ## Lean submission work
 
-The candidate is pinned at [`3c45153`](https://github.com/1337isnot1337/catalan-constant/commit/3c4515314bda407d032cb55f60bfc56b03c1d3f9). Its published source audit passed. Issue creation through the connected GitHub app returned HTTP 403, so no verifier issue has been created. The [prepared submission](docs/submission-52823288.md) contains the exact fields and a link to the official form.
+The submitted candidate is pinned at [`3c45153`](https://github.com/1337isnot1337/catalan-constant/commit/3c4515314bda407d032cb55f60bfc56b03c1d3f9), and its published source audit passed. [Verifier submission #87](https://github.com/bigospeedrun/verifier/issues/87) was opened on October 30, 2026 with the exact rational bound `6602911/12500`. The verifier bot acknowledged receipt; it checks submissions periodically, one proof at a time. A separate automated derivation report compares file hashes, but **does not validate the proof**. There is no reported passing verifier receipt yet. The [submission record](docs/submission-52823288.md) lists the exact fields and verification status.
 
-The source is prepared for the [Big O Speedrun verifier](https://github.com/bigospeedrun/verifier).
+The frozen source has been submitted to the [Big O Speedrun verifier](https://github.com/bigospeedrun/verifier/issues/87).
 The new modules are under `Submission/Refinement/` and
 `Submission/Improvement/`. The entrypoint `Submission.lean` states
 `Race.bound : BigOSpeedrun.Catalan.Bound ((6602911 : ℚ) / 12500)`
