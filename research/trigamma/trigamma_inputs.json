@@ -1,0 +1,54 @@
+{
+  "upstream_repository": "slitsey/catalan-irrationality-measure",
+  "upstream_commit": "aa2a42f4f3835347ad46608779e22dd52c2dc7bf",
+  "certificates": {
+    "Fourths": {
+      "path": "CatalanCore/Uniform/Bank/Common/Data/Fourths/Data.lean",
+      "sha256": "9189436726b58c8363b9a93dad6bc82218aa37118b99cf5f70dcbdf09928190c",
+      "dim": 2,
+      "Mq": "11/10",
+      "Scap": "-466394071550203804161/7812500000000000000000",
+      "ccert": "1438085452130567/200000000000000",
+      "etaS": "3328804161/7812500000000000000000",
+      "Dt": "14627817894518751186053/3906250000000000000000",
+      "git_blob_sha1": "017b95298e0595c5aa113d55f9d8ed3370353d9f",
+      "hash_scope": "canonical upstream Git blob bytes"
+    },
+    "Fifths": {
+      "path": "CatalanCore/Uniform/Bank/Common/Data/Fifths/Data.lean",
+      "sha256": "222db52be633f2bd273e28ae204cab171da72b0a3fc6b526426ede54beb99157",
+      "dim": 2,
+      "Mq": "10/9",
+      "Scap": "-3763831774214471642733/62500000000000000000000",
+      "ccert": "2239239458955067/312500000000000",
+      "etaS": "26971642733/62500000000000000000000",
+      "Dt": "476697473213463/125000000000000",
+      "git_blob_sha1": "f0dfc4454777c7217fd6371277537b10bedb886e",
+      "hash_scope": "canonical upstream Git blob bytes"
+    },
+    "Thirds": {
+      "path": "CatalanCore/Uniform/Bank/Common/Data/Thirds/Data.lean",
+      "sha256": "5a0af2532d6511f0bebab9547638e0f31d595a2aba09265818bcc044fc57fcde",
+      "dim": 2,
+      "Mq": "23/20",
+      "Scap": "-3527891141027225033/62500000000000000000",
+      "ccert": "34136273513123893/5000000000000000",
+      "etaS": "27225033/62500000000000000000",
+      "Dt": "251820307144120719543/62500000000000000000",
+      "git_blob_sha1": "ddec62f215bf84939857c4c45dca8b4b0eee2d9e",
+      "hash_scope": "canonical upstream Git blob bytes"
+    },
+    "Chi3": {
+      "path": "CatalanCore/Uniform/Bank/Common/Data/Chi3/Data.lean",
+      "sha256": "f170cb8e0e3cfd7927f1bf8ac8819d8fd430ca092ab0dbc568b8f835eea671b6",
+      "dim": 3,
+      "Mq": "5/4",
+      "Scap": "-11229698095003625147/375000000000000000000",
+      "ccert": "37521870783566737/5000000000000000",
+      "etaS": "42875049/125000000000000000000",
+      "Dt": "4643511791526209475773/1000000000000000000000",
+      "git_blob_sha1": "df7208959fc6ddfb17e92d89f7e28641ecd024bf",
+      "hash_scope": "canonical upstream Git blob bytes"
+    }
+  }
+}

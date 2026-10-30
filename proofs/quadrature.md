@@ -4,21 +4,21 @@
 
 For Litsey's design `(58, 9, 3, 5, 3)`, put
 
-\[
+$$
 g=\frac{1573}{10000},\qquad
 a=\frac{2g}{1+g^2},\qquad
 r=\frac{100000001}{100000000},\qquad
 w_c=\frac{105211}{2000}=52.6055.
-\]
+$$
 
 The exact certificate `circle_1573.json` proves the circle bound
 
-\[
+$$
 \left|T_{\lceil53N/2\rceil}
  \left(\frac{2z^2-(1+a^2)}{1-a^2}\right)\right|
  |1-z|^{6N}\le 3e^{w_cN}
  \quad (N\ge1,\ |z|=r).
-\]
+$$
 
 Consequently, the existing quadrature construction has weight exponent
 `w = 52.605501`, or any real `w > 52.6055`. This statement follows from the
@@ -42,10 +42,10 @@ The old contour radius is `1.001`. Its role in the weight proof is a factor
 
 In detail, with `H_0=78` and circle constant `C=3`, the existing proof gives
 
-\[
+$$
 |\operatorname{rowCommonFactor}(\tau_j)|\,|\beta_{j,k}|
 \le \frac{8H_0C}{(r-1)^2}\,N e^{w_cN}.
-\]
+$$
 
 For every fixed `w>w_c`, the constant `8H_0C/(r-1)^2` is eventually at most
 `108000 exp((w-w_c)N)`. Hence the required weight bound is
@@ -59,15 +59,15 @@ exactly by the verifier.
 
 Let `s=|Re z|`. On the circle `|z|=r`,
 
-\[
+$$
 |z^2-1|^2=(r^2+1)^2-4s^2,\qquad
 |z^2-a^2|^2=(r^2+a^2)^2-4a^2s^2.
-\]
+$$
 
 Each certificate cell `[lo,hi]` stores six rational numbers
 `lo,hi,b1,b2,H,base` and checks
 
-\[
+$$
 \begin{aligned}
 &0\le lo<hi\le r,\quad b_1,b_2\ge0,\\
 &(r^2+1)^2-4lo^2\le b_1^2,\\
@@ -76,47 +76,47 @@ Each certificate cell `[lo,hi]` stores six rational numbers
 &base\ge H,\quad H^2-1\le(base-H)^2,\quad1\le base\le9,\\
 &base^{53}(r^2+1+2hi)^6\le E.
 \end{aligned}
-\]
+$$
 
 All these inequalities are rational comparisons. The cells cover `[0,r]`
 with consecutive endpoints, which is checked separately.
 
 For
 
-\[
+$$
 \omega=\frac{2z^2-(1+a^2)}{1-a^2},\qquad
 \Theta=\frac{|\omega-1|+|\omega+1|}{2},
-\]
+$$
 
 the first inequalities give `1<=Theta<=H`. The standard Chebyshev bound
 
-\[
+$$
 |T_K(\omega)|\le
  (\Theta+\sqrt{\Theta^2-1})^K\le base^K
-\]
+$$
 
 then applies. Also `|1-z|^2<=r^2+1+2hi`. With
 `K=ceil(53N/2)` and `2K<=53N+1`,
 
-\[
+$$
 \begin{aligned}
 \bigl(|T_K(\omega)|\,|1-z|^{6N}\bigr)^2
 &\le base^{53N+1}(r^2+1+2hi)^{6N}\\
 &\le9 E^N.
 \end{aligned}
-\]
+$$
 
 The certificate uses the integer
 
-\[
+$$
 E=4926707008427985110447915543287285660159303931.
-\]
+$$
 
 It verifies the exact inequality
 
-\[
+$$
 E\le\sum_{k=0}^{399}\frac{(2w_c)^k}{k!}<e^{2w_c}.
-\]
+$$
 
 Taking square roots yields the claimed circle estimate.
 
