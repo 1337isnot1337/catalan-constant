@@ -27,36 +27,48 @@ def chebyshev_value(coefficients, x):
 
 def generate(candidate_path):
     candidate=json.loads(Path(candidate_path).read_text())
-    gm=Q(1573,10000);gp=Q(857,10000)
+    gm=Q(str(candidate.get('gap_minus','1573/10000')))
+    gp=Q(str(candidate.get('gap_plus','857/10000')))
+    outer=Q(str(candidate.get('outer_minus',1)))
+    outer_t=-2*outer/(1+outer*outer)
     left=-2*gm/(1+gm*gm);right=2*gp/(1+gp*gp)
-    coefficients=[Q(str(x))*Q(1000001,1000000) for x in candidate['cheb_coeffs']]
+    # Absolute rounding, not significant-digit rounding: even a coefficient
+    # that is large because of cancellation keeps a uniformly tiny error.
+    den=10**40
+    coefficients=[Q(round(Q(str(x))*Q(1000001,1000000)*den),den)
+                  for x in candidate['cheb_coeffs']]
     critical=[Q(str(x)) for x in candidate['control_points']]
-    left_points=sorted(set([Q(-1),left]+[x for x in critical if -1<x<left]))
+    left_points=sorted(set([outer_t,left]+[x for x in critical if outer_t<x<left]))
     right_points=sorted(set([right,Q(1)]+[x for x in critical if right<x<1]))
     # The search output also contains approximations to the exact endpoints.
     # Discard these, keeping the exact rational endpoint instead.
     eps=Q(1,10**12)
-    left_points=[x for x in left_points if x in [Q(-1),left] or min(abs(x+1),abs(x-left))>eps]
+    left_points=[x for x in left_points if x in [outer_t,left] or min(abs(x-outer_t),abs(x-left))>eps]
     right_points=[x for x in right_points if x in [right,Q(1)] or min(abs(x-right),abs(x-1))>eps]
-    return {'format':'chebyshev-rational-inverse-image-v1',
+    result={'format':'chebyshev-rational-inverse-image-v1' if outer==1 else 'chebyshev-rational-inverse-image-v2',
             'degree':len(coefficients)-1,
             'gap_minus':str(gm),'gap_plus':str(gp),
             'left_endpoint':str(left),'right_endpoint':str(right),
             'chebyshev_coefficients':[str(x) for x in coefficients],
             'left_controls':[str(x) for x in left_points],
             'right_controls':[str(x) for x in right_points]}
+    if outer!=1:result['outer_minus']=str(outer)
+    return result
 
 
 def verify(c):
-    assert c['format']=='chebyshev-rational-inverse-image-v1'
+    assert c['format'] in ['chebyshev-rational-inverse-image-v1','chebyshev-rational-inverse-image-v2']
     co=list(map(Q,c['chebyshev_coefficients']))
     m=c['degree'];assert len(co)==m+1 and co[-1]!=0
     gm=Q(c['gap_minus']);gp=Q(c['gap_plus'])
     assert 0<gm<1 and 0<gp<1
+    outer=Q(1) if c['format']=='chebyshev-rational-inverse-image-v1' else Q(c['outer_minus'])
+    assert gm<outer<=1
+    outer_t=-2*outer/(1+outer*outer)
     left=-2*gm/(1+gm*gm);right=2*gp/(1+gp*gp)
     assert Q(c['left_endpoint'])==left and Q(c['right_endpoint'])==right
     root_count=0;minimum=None;counts={}
-    for name,lo,hi in [('left',Q(-1),left),('right',right,Q(1))]:
+    for name,lo,hi in [('left',outer_t,left),('right',right,Q(1))]:
         xs=list(map(Q,c[name+'_controls']))
         assert len(xs)>=2 and xs[0]==lo and xs[-1]==hi
         assert all(a<b for a,b in zip(xs,xs[1:]))

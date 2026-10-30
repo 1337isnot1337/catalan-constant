@@ -5,10 +5,10 @@
 For Catalan's constant $G=\sum_{n\ge0}(-1)^n/(2n+1)^2$, this repository gives the written bound
 
 $$
-\boxed{\mu(G)\le 529.24599.}
+\boxed{\mu(G)\le 528.23288.}
 $$
 
-Precisely, $|G-p/q|>q^{-529.24599}$ for every integer $p$ and every sufficiently large positive integer $q$.
+Precisely, $|G-p/q|>q^{-528.23288}$ for every integer $p$ and every sufficiently large positive integer $q$.
 
 The proof reuses Sean Litsey's determinant construction, arithmetic estimates, nonvanishing theorem, and energy witnesses. It adds a different quadrature node construction and exact rational certificates. This is **not a new Lean formalization**. The complete upstream Lean development has not been rebuilt here, and this result has not been submitted to or verified by the leaderboard.
 
@@ -18,30 +18,33 @@ The proof reuses Sean Litsey's determinant construction, arithmetic estimates, n
 | Unrounded estimate already discussed in Litsey's paper | about 531.88 |
 | First result here: smaller symmetric gap and scalar retuning | 531.55361 |
 | Asymmetric polynomial quadrature, degree 53 | 530.6705 |
-| Asymmetric polynomial quadrature, degree 107 | **529.24599** |
+| Asymmetric polynomial quadrature, degree 107 | 529.24599 |
+| Trimmed support, sharper eventual near field, degree 130 | **528.23288** |
 
 ## What changed
 
 The determinant design remains $(58,9,3,5,3)$, and its degree in the unknown constant remains at most $53N$.
 
-The old quadrature nodes leave a symmetric gap around zero. The existing energy witness permits a larger interval on the positive side. We certify its residual bound on
+The old quadrature nodes leave a symmetric gap around zero. The existing energy witness permits an asymmetric support. Trimming its negative outer endpoint allows the stronger residual cap $-0.0883$ on
 
 $$
-[-1,-0.1573]\ \cup\ [0.0857,1]
+[-0.9636,-0.19501]\ \cup\ [0.098749,1]
 $$
 
-in the energy coordinate. A rational degree-107 polynomial $P$ supplies a node family inside this asymmetric support. Exact sign checks prove that every level $P(t)=y$, $y\in[-1,1]$, has 51 simple real solutions in the left band and 56 in the right band. The roots of $T_{K_N}(P(t))$, with $K_N=\lceil53N/107\rceil$, supply the interpolation nodes after at most 106 surplus roots are removed. This removal changes only a constant prefactor in the estimates.
+in the energy coordinate. A rational degree-130 polynomial $P$ supplies a node family inside this support. Exact sign checks prove that every level $P(t)=y$, $y\in[-1,1]$, has 61 simple real solutions in the left band and 69 in the right band. The roots of $T_{K_N}(P(t))$, with $K_N=\lceil53N/130\rceil$, supply the interpolation nodes after at most 129 surplus roots are removed. This removal changes only a constant prefactor in the estimates.
 
-An exact Bernstein certificate bounds the new node polynomial on a complex circle. This lowers the quadrature weight exponent from the upstream $52.7887$ to $51.297401$. The energy target and fixed-column cost are retuned, and the exact area of the unchanged arithmetic profile is retained.
+An exact Bernstein certificate gives the quadrature weight exponent $52.184351$. A sharper near-field estimate, valid for sufficiently large scales, supports the stronger residual cap. Together these lower the determinant perturbation cost to $\rho=299.43407727$. The energy target and fixed-column cost are retuned, and the exact area of the unchanged arithmetic profile is retained.
 
 ## Proofs
 
-- [Current theorem and exact scalar conditions](proofs/result_52924599.md).
+- [Current theorem and exact scalar conditions](proofs/result_52823288.md).
+- [Trimmed support and eventual near-field argument](proofs/trimmed_support.md).
+- [Earlier degree-107 theorem](proofs/result_52924599.md).
 - [Earlier degree-53 theorem](proofs/result_5306705.md).
 - [Polynomial inverse-image quadrature](proofs/inverse_image_quadrature.md).
 - [Extension to any fixed polynomial degree](proofs/inverse_image_general_degree.md).
 - [Original symmetric improvement and upstream dependencies](proofs/measure.md).
-- [Recorded verification of the degree-107 result](certificates/verification_107.json).
+- [Recorded verification of the degree-130 result](certificates/verification_130.json).
 
 The argument relies on cited upstream mathematical theorems. The scripts check the new finite inequalities; they do not re-prove all of those theorems.
 
@@ -68,13 +71,14 @@ From the repository root, using ordinary Python 3 and its standard library:
 python3 scripts/verify_current.py
 ```
 
-This checks the rational inverse branches, the complex-circle bound, the residual-field extensions, the 102-piece arithmetic-profile area, and every scalar inequality in the final irrationality criterion. It also rejects an invalid support certificate and an exponent below the proved criterion threshold. Floating-point computations are not used in any certificate decision.
+This checks the rational inverse branches, the complex-circle bound, the full residual domain, the eventual near field, the 102-piece arithmetic-profile area, and every scalar inequality in the final irrationality criterion. It also rejects an invalid support certificate and an exponent below the proved criterion threshold. Floating-point computations are not used in any certificate decision.
 
 The earlier results remain independently reproducible:
 
 ```sh
 python3 scripts/verify.py
 python3 scripts/verify_asymmetric.py
+python3 scripts/verify_current.py --degree 107
 ```
 
 Candidate search is separate from certification. The [trigamma experiments](research/trigamma/README.md) record an attempted alternative that did not produce a bound.

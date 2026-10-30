@@ -3,12 +3,18 @@
 import argparse
 import json
 from pathlib import Path
-from verify_107 import verify_all
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--degree', choices=['53', '107', '130'], default='130')
     args = parser.parse_args()
+    if args.degree == '53':
+        from verify_asymmetric import verify_all
+    elif args.degree == '107':
+        from verify_107 import verify_all
+    else:
+        from verify_130 import verify_all
     result = verify_all()
     if args.output:
         args.output.write_text(json.dumps(result, indent=2) + '\n')
