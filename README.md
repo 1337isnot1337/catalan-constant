@@ -53,6 +53,8 @@ The argument relies on cited upstream mathematical theorems. The scripts check t
 
 ## Lean submission work
 
+The candidate is pinned at [`3c45153`](https://github.com/1337isnot1337/catalan-constant/commit/3c4515314bda407d032cb55f60bfc56b03c1d3f9). Its published source audit passed. Issue creation through the connected GitHub app returned HTTP 403, so no verifier issue has been created. The [prepared submission](docs/submission-52823288.md) contains the exact fields and a link to the official form.
+
 The source is prepared for the [Big O Speedrun verifier](https://github.com/bigospeedrun/verifier).
 The new modules are under `Submission/Refinement/` and
 `Submission/Improvement/`. The entrypoint `Submission.lean` states

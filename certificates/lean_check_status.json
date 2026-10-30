@@ -9,9 +9,20 @@
   "canonical_verifier_revision_checked": "859d6949ef4bdcab4ba661d09cd7fd720d0c4960",
   "local_full_build": "in_progress",
   "local_final_axiom_audit": "pending",
-  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
-  "official_submission": "candidate_prepared",
-  "official_verification": "pending",
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "official_submission": "blocked_connector_permission",
+  "official_verification": "not_started",
   "evidence_level": "Claimed",
-  "note": "Component checks and source-layout audits are not a completed kernel check of Race.bound. See proofs/lean_progress.md for the components already checked."
+  "note": "Component checks and source-layout audits are not a completed kernel check of Race.bound. See proofs/lean_progress.md for the components already checked.",
+  "submission_candidate_commit": "3c4515314bda407d032cb55f60bfc56b03c1d3f9",
+  "official_issue_url": null,
+  "submission_form_url": "https://github.com/bigospeedrun/verifier/issues/new?template=lean-submission.yml&title=%5BLean+submission%5D+Catalan%3A+%CE%BC%28G%29+%E2%89%A4+528.23288&problem=catalan&repository=https%3A%2F%2Fgithub.com%2F1337isnot1337%2Fcatalan-constant&commit=3c4515314bda407d032cb55f60bfc56b03c1d3f9&bound=6602911%2F12500",
+  "submission_error": {
+    "http_status": 403,
+    "message": "Resource not accessible by integration"
+  }
 }
