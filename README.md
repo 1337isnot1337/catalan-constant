@@ -5,10 +5,10 @@
 For Catalan's constant $G=\sum_{n\ge0}(-1)^n/(2n+1)^2$, this repository gives the written bound
 
 $$
-\boxed{\mu(G)\le 530.6705.}
+\boxed{\mu(G)\le 529.24599.}
 $$
 
-Precisely, $|G-p/q|>q^{-530.6705}$ for every integer $p$ and every sufficiently large positive integer $q$.
+Precisely, $|G-p/q|>q^{-529.24599}$ for every integer $p$ and every sufficiently large positive integer $q$.
 
 The proof reuses Sean Litsey's determinant construction, arithmetic estimates, nonvanishing theorem, and energy witnesses. It adds a different quadrature node construction and exact rational certificates. This is **not a new Lean formalization**. The complete upstream Lean development has not been rebuilt here, and this result has not been submitted to or verified by the leaderboard.
 
@@ -17,7 +17,8 @@ The proof reuses Sean Litsey's determinant construction, arithmetic estimates, n
 | Leading listed claim on [Big O Speedrun](https://bigospeedrun.com/other/catalan), checked 2026-10-30 | 532 |
 | Unrounded estimate already discussed in Litsey's paper | about 531.88 |
 | First result here: smaller symmetric gap and scalar retuning | 531.55361 |
-| Asymmetric polynomial quadrature, degree 53 | **530.6705** |
+| Asymmetric polynomial quadrature, degree 53 | 530.6705 |
+| Asymmetric polynomial quadrature, degree 107 | **529.24599** |
 
 ## What changed
 
@@ -29,17 +30,18 @@ $$
 [-1,-0.1573]\ \cup\ [0.0857,1]
 $$
 
-in the energy coordinate. A rational degree-53 polynomial $P$ supplies a node family inside this asymmetric support. Exact sign checks prove that every level $P(t)=y$, $y\in[-1,1]$, has 53 simple real solutions in the permitted bands. The roots of $T_N(P(t))$ then give exactly $53N$ interpolation nodes.
+in the energy coordinate. A rational degree-107 polynomial $P$ supplies a node family inside this asymmetric support. Exact sign checks prove that every level $P(t)=y$, $y\in[-1,1]$, has 51 simple real solutions in the left band and 56 in the right band. The roots of $T_{K_N}(P(t))$, with $K_N=\lceil53N/107\rceil$, supply the interpolation nodes after at most 106 surplus roots are removed. This removal changes only a constant prefactor in the estimates.
 
-An exact Bernstein certificate bounds the new node polynomial on a complex circle. This lowers the quadrature weight exponent from the upstream $52.7887$ to $52.104901$. The energy target and fixed-column cost are retuned, and the exact area of the unchanged arithmetic profile is retained.
+An exact Bernstein certificate bounds the new node polynomial on a complex circle. This lowers the quadrature weight exponent from the upstream $52.7887$ to $51.297401$. The energy target and fixed-column cost are retuned, and the exact area of the unchanged arithmetic profile is retained.
 
 ## Proofs
 
-- [Numerical theorem and exact scalar conditions](proofs/result_5306705.md).
+- [Current theorem and exact scalar conditions](proofs/result_52924599.md).
+- [Earlier degree-53 theorem](proofs/result_5306705.md).
 - [Polynomial inverse-image quadrature](proofs/inverse_image_quadrature.md).
 - [Extension to any fixed polynomial degree](proofs/inverse_image_general_degree.md).
 - [Original symmetric improvement and upstream dependencies](proofs/measure.md).
-- [Recorded verification of the degree-53 result](certificates/verification_53.json).
+- [Recorded verification of the degree-107 result](certificates/verification_107.json).
 
 The argument relies on cited upstream mathematical theorems. The scripts check the new finite inequalities; they do not re-prove all of those theorems.
 
@@ -48,15 +50,16 @@ The argument relies on cited upstream mathematical theorems. The scripts check t
 From the repository root, using ordinary Python 3 and its standard library:
 
 ```sh
-python3 scripts/verify_asymmetric.py
+python3 scripts/verify_current.py
 ```
 
-This checks the rational inverse branches, the complex-circle bound, the residual-field extensions, the 102-piece arithmetic-profile area, and every scalar inequality in the final irrationality criterion. It also checks that an invalid support certificate is rejected. Floating-point computations are not used in any certificate decision.
+This checks the rational inverse branches, the complex-circle bound, the residual-field extensions, the 102-piece arithmetic-profile area, and every scalar inequality in the final irrationality criterion. It also rejects an invalid support certificate and an exponent below the proved criterion threshold. Floating-point computations are not used in any certificate decision.
 
-The first result remains independently reproducible:
+The earlier results remain independently reproducible:
 
 ```sh
 python3 scripts/verify.py
+python3 scripts/verify_asymmetric.py
 ```
 
 Candidate search is separate from certification. The [trigamma experiments](research/trigamma/README.md) record an attempted alternative that did not produce a bound.

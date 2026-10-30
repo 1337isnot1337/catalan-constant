@@ -122,3 +122,25 @@ This squared form uses only integer powers and rational comparisons. An
 integer or rational threshold below the exponential is certified with a
 finite positive Taylor sum. A finite chain of rational intervals covering
 `[-1,1]` completes the proof.
+
+## The filtered cell certificate used in the implementation
+
+To reduce interval overestimation, write $6m=53k+\ell$, where
+$0\le\ell<53$, and form $Q(z)=P(z)(1-z)^k$. Then
+
+$$
+(2|P(z)|+1)^{53}|1-z|^{6m}
+=\bigl(2|Q(z)|+|1-z|^k\bigr)^{53}|1-z|^\ell.
+$$
+
+On a cell $[a,b]$ in $s=\cos\theta$, the exact Bernstein enclosure gives
+$|Q(z)|^2\le M^2$ for an explicitly checked integer $M$. Set
+
+$$
+A=2M+\lceil(r+1)^k\rceil,\qquad D=r^2+1-2ra.
+$$
+
+It suffices to check $A^{106}D^\ell\le E<\exp(2mw_c)$.
+The checker constructs $E$ using a rational lower bound for $e$ and a finite
+positive Taylor sum for the fractional part of $2mw_c$. The dyadic cells
+cover $[-1,1]$ exactly. This proves (1) using integer powers alone.
