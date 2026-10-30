@@ -3,7 +3,7 @@ module
 public import Submission.CatalanMeasure.Parametric.GoodPrimes
 public import Submission.CatalanMeasure.Parametric.BlockAlgebra
 public import Submission.CatalanMeasure.Parametric.Polynomial
-public import Submission.CatalanMeasure.SquareNonvanishing
+public import Submission.Refinement.PrimeDenominator
 
 @[expose] public section
 
@@ -56,7 +56,7 @@ theorem nonvanishing_of_c3 (P : Parameters) (hP : Admissible P) {ℓ0 : ℕ} [Fa
     rw [Rat.cast_div, Rat.cast_intCast, Rat.cast_natCast]
   rw [hx, aeval_ratCast_eq', Parametric.eval_deltaPoly]
   have hd := determinantRat_prime_ne_zero P hP (by omega) r0 rp rm ((a : ℚ) / b)
-    (prime_mul_div_den_unit a hb hpb)
+    (Refinement.prime_mul_div_den_unit a hb hpb)
   exact_mod_cast hd
 
 end

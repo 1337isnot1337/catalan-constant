@@ -14,6 +14,34 @@
         "before": "refine \u27e8\u27e8\u27e8\u27e8\u27e8\u27e8hL, hlv\u27e9, hH\u27e9, hlow\u27e9, hhigh\u27e9, of_decide_eq_true hPb\u27e9, ?_\u27e9",
         "after": "refine \u27e8\u27e8\u27e8\u27e8\u27e8\u27e8hL, hlv\u27e9, hH\u27e9, hlow\u27e9, hhigh\u27e9, hPb\u27e9, ?_\u27e9"
       }
+    ],
+    "CatalanMeasure.GenD.Nonvanishing": [
+      {
+        "id": "isolate-elementary-prime-denominator-import",
+        "reason": "Use the same two elementary denominator proofs in PrimeDenominator, avoiding unrelated fixed-48 numerical certificates; no theorem statement changes.",
+        "before": "public import Submission.CatalanMeasure.SquareNonvanishing",
+        "after": "public import Submission.Refinement.PrimeDenominator"
+      },
+      {
+        "id": "use-isolated-prime-denominator-lemma",
+        "reason": "Call the copied elementary lemma under its new namespace; the statement and proof are unchanged.",
+        "before": "(prime_mul_div_den_unit a hb hpb)",
+        "after": "(Refinement.prime_mul_div_den_unit a hb hpb)"
+      }
+    ],
+    "CatalanMeasure.GenD.Analytic.WeightedAtom": [
+      {
+        "id": "isolate-elementary-atom-measure-import",
+        "reason": "Import the same determinant/measure facts from AtomMeasureFacts instead of the unrelated fixed-design Lemma6 proof; no theorem statement changes.",
+        "before": "public import Submission.CatalanMeasure.Lemma6",
+        "after": "public import Submission.Improvement.Fields.AtomMeasureFacts"
+      },
+      {
+        "id": "use-isolated-atom-measure-lemmas",
+        "reason": "Use the copied determinant/measure proofs under new names; all generic weighted-atom statements are unchanged.",
+        "before": "rw [\u2190 hmat, abs_det_submatrix_equiv, pairMeasure_real_univ] at hdet",
+        "after": "rw [\u2190 hmat, atom_abs_det_submatrix_equiv, atom_pairMeasure_real_univ] at hdet"
+      }
     ]
   },
   "files": [
@@ -590,8 +618,12 @@
     {
       "path": "CatalanMeasure/GenD/Analytic/WeightedAtom.lean",
       "source_sha256": "615ae525df70b8ac8a7e1cb95815e5404832b4d906466fd4b4907f73fa4ec5c0",
-      "converted_sha256": "c1b32cb2b598d29fe5c34b654fc54b6eacf37527bfc1ede78044a0fb14d11689",
-      "bytes": 13621
+      "converted_sha256": "60ac1419f5b4556f2474feae019bf0e6e2af560fa74cb53abd28cbe79b4a74da",
+      "bytes": 13645,
+      "compatibility_patches": [
+        "isolate-elementary-atom-measure-import",
+        "use-isolated-atom-measure-lemmas"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/Budget.lean",
@@ -1643,8 +1675,12 @@
     {
       "path": "CatalanMeasure/GenD/Nonvanishing.lean",
       "source_sha256": "9dd4d9592a36d07fd112618dc45e381422bb8cce1f5a3f987b68357110175ab6",
-      "converted_sha256": "ce9918a7f53693fda220217ebae854c317a5dc26e972400b5b2637bc01a7c366",
-      "bytes": 2787
+      "converted_sha256": "0880ceabee2d7d27fad738f753dcafe773ccf071e36dfc90ffea5eeda77ef1d7",
+      "bytes": 2792,
+      "compatibility_patches": [
+        "isolate-elementary-prime-denominator-import",
+        "use-isolated-prime-denominator-lemma"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/Normalizer.lean",

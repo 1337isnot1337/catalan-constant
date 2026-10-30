@@ -3,7 +3,7 @@ module
 public import Submission.CatalanMeasure.GenD.Analytic.AtomBase
 public import Submission.CatalanMeasure.GenD.Analytic.MarkedMixedMajorant
 public import Submission.CatalanMeasure.Parametric.MarkedAtomAlmostEverywhere
-public import Submission.CatalanMeasure.Lemma6
+public import Submission.Improvement.Fields.AtomMeasureFacts
 
 @[expose] public section
 
@@ -247,7 +247,7 @@ theorem weighted_atom_det (P : Parameters)
   have hdet := CatalanMeasure.abs_det_mixedMatrixWithAtoms_mul_weight_le
     realPlaceMeasure (volume.restrict (Ioo (0 : ℝ) 1)) (paramPinRowFun P N)
     (originalPolyAtoms P N yv) (paramPinColFun P N E) paramPinKernel hW hint hae
-  rw [← hmat, abs_det_submatrix_equiv, pairMeasure_real_univ] at hdet
+  rw [← hmat, atom_abs_det_submatrix_equiv, atom_pairMeasure_real_univ] at hdet
   have hprodW : (∏ k, (f k).elim 1 (fun a => |nodeAtomWeights P τ N a k|)) = W := by
     rw [← e.prod_comp, Fin.prod_univ_add]
     simp only [he1, Option.elim, prod_const_one, one_mul]
