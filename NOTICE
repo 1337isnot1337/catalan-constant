@@ -25,6 +25,10 @@ See LICENSE for the Apache License 2.0.
 
 The Lean dependency closure under Submission/ is copied from the pinned
 upstream project, with imports of vendored roots prefixed by Submission.
+The guarded compatibility patch in scripts/vendor_lean.py changes one proof
+step in CatalanMeasure/GenD/Cert/Assembly.lean for Lean 4.34.1: an existing
+Boolean equality hypothesis is used directly. No mathematical statement or
+definition changes. The provenance manifest records this patch and both hashes.
 The original upstream NOTICE is preserved in third_party/UPSTREAM_NOTICE.
 New modules under Submission/Refinement/ and Submission/Improvement/ are
 additions in this repository. The trusted CatalanStatement.lean is copied

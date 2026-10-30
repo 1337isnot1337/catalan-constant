@@ -14,6 +14,14 @@ ROOT_MODULES = [
 ]
 VENDORED_ROOTS = {'CatalanMeasure', 'CatalanCore', 'OAI', 'PrimeNumberTheoremAnd'}
 IMPORT = re.compile(r'^(\s*(?:(?:public|private|meta)\s+)*import\s+)(.+)$')
+COMPATIBILITY_PATCHES = {
+    'CatalanMeasure.GenD.Cert.Assembly': [{
+        'id': 'lean-4.34.1-blockOK-ofS-boolean-proof',
+        'reason': 'The Boolean equality goal uses hPb directly; no statement changes.',
+        'before': 'refine ⟨⟨⟨⟨⟨⟨hL, hlv⟩, hH⟩, hlow⟩, hhigh⟩, of_decide_eq_true hPb⟩, ?_⟩',
+        'after': 'refine ⟨⟨⟨⟨⟨⟨hL, hlv⟩, hH⟩, hlow⟩, hhigh⟩, hPb⟩, ?_⟩',
+    }],
+}
 
 
 def sha(data):
@@ -44,15 +52,25 @@ def vendor(source, output):
             fixed = ['Submission.' + n if n.split('.')[0] in VENDORED_ROOTS else n for n in names]
             if fixed != names:
                 lines[i] = match[1] + ' '.join(fixed)
-        transformed = '\n'.join(lines).encode()
+        converted = '\n'.join(lines)
+        patches = COMPATIBILITY_PATCHES.get(module, [])
+        for patch in patches:
+            if converted.count(patch['before']) != 1:
+                raise ValueError(f'Expected one source match for {patch["id"]}')
+            converted = converted.replace(patch['before'], patch['after'], 1)
+        transformed = converted.encode()
         target = output / 'Submission' / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(transformed)
-        manifest.append({'path': str(relative), 'source_sha256': sha(original),
-                         'converted_sha256': sha(transformed), 'bytes': len(transformed)})
+        item = {'path': str(relative), 'source_sha256': sha(original),
+                'converted_sha256': sha(transformed), 'bytes': len(transformed)}
+        if patches:
+            item['compatibility_patches'] = [p['id'] for p in patches]
+        manifest.append(item)
     record = {'source_repository': 'https://github.com/slitsey/catalan-irrationality-measure',
               'source_commit': UPSTREAM_COMMIT, 'root_modules': ROOT_MODULES,
               'conversion': 'Prefix imports of vendored roots with Submission.',
+              'compatibility_patches': COMPATIBILITY_PATCHES,
               'files': sorted(manifest, key=lambda x: x['path'])}
     (output / 'certificates/lean_source_manifest.json').write_text(json.dumps(record, indent=2) + '\n')
     print(f'Copied {len(manifest)} files, {sum(x["bytes"] for x in manifest)} bytes')

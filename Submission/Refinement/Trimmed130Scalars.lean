@@ -1,7 +1,6 @@
 module
 
-public import Submission.Refinement.PreciseLogTwo
-public import Submission.Refinement.Fallback5318833
+public import Submission.Refinement.ScalarBase
 
 @[expose] public section
 set_option Elab.async false
@@ -67,11 +66,9 @@ theorem second_budget {a t : ℝ} (ha : 0 ≤ a) (ht : 0 ≤ t) :
 theorem pay : PayW omega 53 rho eta kappa delta bound := by
   norm_num [PayW, omega, rho, eta, kappa, delta, bound, secondCost, weight]
 
-theorem decay_margin :
-    eta < tDelta - Uniform.Bank540.Ledger.gDg Uniform.Bank532.gain532 := by
+theorem decay_margin : eta < tDelta - denominatorExponent := by
   obtain ⟨hl, hh⟩ := CatalanMeasure.GenD.Refinement.log_two_bounds
-  rw [gain532_exact]
-  norm_num [eta, tDelta, target, Uniform.Bank540.Ledger.gDg,
+  norm_num [eta, tDelta, target, denominatorExponent, exactProfileGain,
     logTwoLo, logTwoHi] at hl hh ⊢
   linarith
 

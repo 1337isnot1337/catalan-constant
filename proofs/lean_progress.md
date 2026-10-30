@@ -19,9 +19,15 @@ Mathlib revision `d13f23b723b8a846827a245b89c10fc7d3f11612`:
 - The degree-130 polynomial data and tight rational zero brackets.
 - Global tangent inequalities for products of positive affine factors.
 - All three finite tangent-circle comparisons in `Sharp130Finite`.
+- All 130 tight root enclosures, their polynomial factorization, and the
+  complete complex-circle bound in `Sharp130Circle`.
+- The exact scalar budget for the target 528.23288.
+- The eventual grouped near-field bound, including the correction at
+  finite scale and the threshold N >= 10^7.
+- The second-energy argument with this eventual near-field hypothesis.
 
 The finite comparisons use kernel reduction (`decide +kernel`). The printed
-axioms for the real exponential bound and the factor positivity theorem are
+axioms for the complete circle bound, real exponential bound, and factor positivity theorem are
 `propext`, `Classical.choice`, and `Quot.sound`.
 
 The circle certificate is recorded in `certificates/root_tangent_130.json`.
@@ -32,11 +38,10 @@ The generic inequality follows from `1 + t ≤ exp t`.
 
 ## Remaining assembly
 
-The concrete root-location checks, complex-circle consequence, trimmed
-residual field, eventual near-field bound, determinant decay estimate, and
-canonical target must be connected and built together. Some of these modules
-are still being checked. Their presence in the repository does not establish
-the final bound in Lean.
+The all-level quadrature wrapper, trimmed residual field, determinant decay
+estimate, and canonical target must be connected and built together. Some of
+these modules are still being checked. Their presence in the repository does
+not establish the final bound in Lean.
 
 The submission gate is a successful `lake build Submission`, an allowed-axiom
 audit of the unconditional `Race.bound`, and a full published commit SHA.

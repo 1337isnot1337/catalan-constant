@@ -20,6 +20,9 @@ This adapts the upstream D58 near-field monotonicity proof.
 
 namespace CatalanMeasure.Improvement.Fields
 open CatalanMeasure.CellCert CatalanMeasure.Cert OAI.InternalCatalan Set
+set_option maxRecDepth 1000000
+set_option maxHeartbeats 0
+set_option Elab.async false
 noncomputable section
 
 def nearBaseTrimmed (y : ℝ) : ℝ :=
@@ -141,7 +144,11 @@ theorem first_lower_trimmed : (1815069024687 / 10000000000000 : ℝ) ≤
       GenD.D58.Cert.firstQ GenD.D58.Cert590.Pc GenD.D58.Cert590.P := by
     unfold GenD.D58.Cert.firstQ
     decide +kernel
-  exact_mod_cast hq
+  have hr : (((1815069024687 / 10000000000000 : ℚ)) : ℝ) ≤
+      ((GenD.D58.Cert.firstQ GenD.D58.Cert590.Pc GenD.D58.Cert590.P : ℚ) : ℝ) :=
+    Rat.cast_le.mpr hq
+  norm_num at hr
+  exact hr
 
 open CatalanMeasure.GenD CatalanMeasure.GenD.Analytic CatalanMeasure.Parametric Filter
 
@@ -189,7 +196,7 @@ theorem grouped_near_trimmed {N : ℕ} (hN : 10000000 ≤ N) {y : ℝ}
     nlinarith only [hNR]
   unfold groupedNearField
   rw [grouped_marked_field_identity D58.Odd.design_admissible hN0, abs_of_pos hy.1]
-  norm_num [gRes, D58.Odd.design] at hb ⊢
+  rw [show gRes D58.Odd.design = (53 / 58 : ℝ) by norm_num [gRes, D58.Odd.design]]
   linarith only [hb, hm, hcorr, hsmall]
 
 theorem grouped_near_trimmed_eventually :
@@ -199,4 +206,7 @@ theorem grouped_near_trimmed_eventually :
   filter_upwards [eventually_ge_atTop (10000000 : ℕ)] with N hN y hy
   exact grouped_near_trimmed hN hy
 
+end
 end CatalanMeasure.Improvement.Fields
+
+#print axioms CatalanMeasure.Improvement.Fields.grouped_near_trimmed_eventually
