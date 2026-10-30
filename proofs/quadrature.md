@@ -29,8 +29,8 @@ rational and integer arithmetic.
 
 The circle change alone does not prove an irrationality measure: the energy
 residual field must also be bounded on the additional strips between the new
-gap `0.1573` and the old gap `0.1604`. That independent certificate is required
-before using this weight in the final measure. The companion file
+gap `0.1573` and the old gap `0.1604`. The [residual certificate](measure.md) supplies that extension and checks it
+before this weight is used in the final measure. The companion file
 `circle_1604.json` retains the old gap and certifies `w_c=52.74605`; it needs no
 extension of the residual field domain.
 
@@ -127,6 +127,10 @@ floating point estimate is used only to choose a target cap and is not part
 of the proof.
 
 ## Reproduction
+
+`circle_1573.json` and `circle_1604.json` below are generated outputs. The
+repository keeps the deterministic exact generator; the default command
+generates and verifies its certificate in memory.
 
 From the repository root:
 

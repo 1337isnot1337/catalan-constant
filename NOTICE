@@ -13,6 +13,11 @@ certificates/rank_profile.json transcribes the wins532 data from
 CatalanMeasure/GenD/Uniform/Bank532/Ledger532.lean. It does not replace the
 upstream proof that these functions bound the prime-by-prime nullities.
 
+certificates/trial_data.json transcribes the unchanged second-case P trial
+from CatalanMeasure/GenD/D58/Cert590/Data.lean, Git blob
+c401f993810de11834f6db6ce5eda4064be09021. Its source and data hashes are recorded
+and verified by scripts/residual_certificate.py.
+
 New code in scripts/ checks the new rational certificates and numerical
 implications. These scripts are not Lean kernel checks of the complete proof.
 

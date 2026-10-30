@@ -2,7 +2,7 @@
   "source_repository": "slitsey/catalan-irrationality-measure",
   "source_commit": "aa2a42f4f3835347ad46608779e22dd52c2dc7bf",
   "source_path": "CatalanMeasure/GenD/Uniform/Bank532/Ledger532.lean",
-  "source_sha256": "d73c7a8e1fb271e43d4cf36ce61714c2afc1eb89c3e81c77bcf0e91e1fcc510d",
+  "source_sha256": "564d8a7fcee03a85f2ab8dafa95cb1e46e1b27ebd90133309ba739e125d00530",
   "columns": [
     "left",
     "right",
@@ -623,5 +623,6 @@
       "-2"
     ]
   ],
-  "exact_area": "36235515874601938601596598/1642609663271115992578125"
+  "exact_area": "36235515874601938601596598/1642609663271115992578125",
+  "source_blob": "34c8f8182857a4ac05a101878783ed9460eccfff"
 }
