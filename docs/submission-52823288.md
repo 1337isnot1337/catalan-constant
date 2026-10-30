@@ -1,14 +1,10 @@
-# Prepared Catalan verifier submission
+# Catalan verifier submission #87
 
-No verifier issue has been created. The GitHub connector returned HTTP 403,
-`Resource not accessible by integration`, when it attempted to create the
-issue in `bigospeedrun/verifier`.
+[Submission issue #87](https://github.com/bigospeedrun/verifier/issues/87) was opened on October 30, 2026. An earlier attempt to create the issue through a GitHub integration returned HTTP 403, but the submission was subsequently posted successfully.
 
-The exact source commit is `3c4515314bda407d032cb55f60bfc56b03c1d3f9`. Its published Lean sources and manifest
-passed the byte and Git-mode audit. The complete local Lean build and final
-`Race.bound` axiom audit are still pending; the result remains Claimed.
+The exact source commit is `3c4515314bda407d032cb55f60bfc56b03c1d3f9`. Its published Lean sources and manifest passed the byte and Git-mode audit. The complete local Lean build and final `Race.bound` axiom audit are still pending. The verifier bot acknowledged receipt and posted a file-hash derivation report, but neither is a passing proof check. The result remains Claimed.
 
-[Open the prepared submission form](https://github.com/bigospeedrun/verifier/issues/new?template=lean-submission.yml&title=%5BLean+submission%5D+Catalan%3A+%CE%BC%28G%29+%E2%89%A4+528.23288&problem=catalan&repository=https%3A%2F%2Fgithub.com%2F1337isnot1337%2Fcatalan-constant&commit=3c4515314bda407d032cb55f60bfc56b03c1d3f9&bound=6602911%2F12500). Review the fields before posting.
+[View the submitted issue and verifier responses](https://github.com/bigospeedrun/verifier/issues/87).
 
 ## Issue title
 
@@ -41,4 +37,6 @@ https://github.com/1337isnot1337/catalan-constant
 - Source-layout and published-byte audits: passed.
 - Complete local kernel build: in progress.
 - Final `Race.bound` axiom audit: pending.
-- Official verification: not started; issue creation was blocked.
+- Official submission: issue [#87](https://github.com/bigospeedrun/verifier/issues/87) acknowledged. The bot states that verification runs periodically and processes one proof at a time.
+- Automated derivation report: file-hash comparison posted; it explicitly does not judge the proof.
+- Official verification: no passing or failing proof verdict reported as of October 30, 2026.
