@@ -1,0 +1,35 @@
+name: Vendor pinned Lean sources
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/vendor_lean.py
+      - .github/workflows/vendor-lean.yml
+
+permissions:
+  contents: write
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the pinned public dependency
+        run: |
+          git init "$RUNNER_TEMP/catalan-upstream"
+          git -C "$RUNNER_TEMP/catalan-upstream" remote add origin https://github.com/slitsey/catalan-irrationality-measure.git
+          git -C "$RUNNER_TEMP/catalan-upstream" fetch --depth 1 origin aa2a42f4f3835347ad46608779e22dd52c2dc7bf
+          git -C "$RUNNER_TEMP/catalan-upstream" checkout --detach FETCH_HEAD
+      - name: Convert only the required source closure
+        run: python3 scripts/vendor_lean.py "$RUNNER_TEMP/catalan-upstream"
+      - name: Publish the converted sources and provenance manifest
+        run: |
+          git add Submission/CatalanMeasure Submission/OAI Submission/PrimeNumberTheoremAnd certificates/lean_source_manifest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Vendor pinned upstream Lean dependency closure for verifier layout'
+          git push origin HEAD:main

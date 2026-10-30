@@ -22,3 +22,10 @@ New code in scripts/ checks the new rational certificates and numerical
 implications. These scripts are not Lean kernel checks of the complete proof.
 
 See LICENSE for the Apache License 2.0.
+
+The Lean dependency closure under Submission/ is copied from the pinned
+upstream project, with imports of vendored roots prefixed by Submission.
+The original upstream NOTICE is preserved in third_party/UPSTREAM_NOTICE.
+New modules under Submission/Refinement/ and Submission/Improvement/ are
+additions in this repository. The trusted CatalanStatement.lean is copied
+unchanged from bigospeedrun/verifier.

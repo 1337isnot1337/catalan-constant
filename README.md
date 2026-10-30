@@ -45,6 +45,21 @@ An exact Bernstein certificate bounds the new node polynomial on a complex circl
 
 The argument relies on cited upstream mathematical theorems. The scripts check the new finite inequalities; they do not re-prove all of those theorems.
 
+## Lean submission work
+
+Formalization is in progress for the [Big O Speedrun verifier](https://github.com/bigospeedrun/verifier).
+The new draft modules are under `Submission/Refinement/` and
+`Submission/Improvement/`; they are not yet a completed, checked proof of
+the displayed bound. The verifier's canonical statement is copied unchanged
+to `Submission/CatalanStatement.lean`. `scripts/vendor_lean.py` copies only
+the pinned upstream dependency closure and prefixes its imports for the
+required layout. The source manifest records original and converted hashes.
+
+The build configuration pins Lean 4.34.1 and the verifier's Mathlib revision.
+A submission will identify a full commit and the strongest bound proved by
+its checked `Race.bound` theorem. The written bound and formal submission
+status are tracked separately.
+
 ## Reproduce the certificates
 
 From the repository root, using ordinary Python 3 and its standard library:
