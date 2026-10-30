@@ -14,15 +14,12 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "official_submission": "blocked_connector_permission",
-  "official_verification": "not_started",
+  "official_submission": "received_issue_87",
+  "official_verification": "awaiting_verifier_result",
   "evidence_level": "Claimed",
-  "note": "Component checks and source-layout audits are not a completed kernel check of Race.bound. See proofs/lean_progress.md for the components already checked.",
+  "note": "The submission is acknowledged, not verified. Component checks and source-layout audits are not a completed kernel check of Race.bound; see proofs/lean_progress.md.",
   "submission_candidate_commit": "3c4515314bda407d032cb55f60bfc56b03c1d3f9",
-  "official_issue_url": null,
-  "submission_form_url": "https://github.com/bigospeedrun/verifier/issues/new?template=lean-submission.yml&title=%5BLean+submission%5D+Catalan%3A+%CE%BC%28G%29+%E2%89%A4+528.23288&problem=catalan&repository=https%3A%2F%2Fgithub.com%2F1337isnot1337%2Fcatalan-constant&commit=3c4515314bda407d032cb55f60bfc56b03c1d3f9&bound=6602911%2F12500",
-  "submission_error": {
-    "http_status": 403,
-    "message": "Resource not accessible by integration"
-  }
+  "official_issue_url": "https://github.com/bigospeedrun/verifier/issues/87",
+  "submission_acknowledgement": "Verifier bot acknowledged receipt and stated it checks submissions every 30 minutes, one proof at a time.",
+  "derivation_report": "A file-hash derivation report was posted; it does not assess proof correctness."
 }
