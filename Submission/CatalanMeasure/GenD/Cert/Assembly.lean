@@ -160,7 +160,7 @@ theorem blockOK_ofS (S : ℕ → Spec) (D : PolyDataS) (m LT : ℕ) (MGL : ℤ) 
   rw [polyValsD_toD]
   simp only [PolyDataS.toD_len, PolyDataS.toD_N] 
   simp only [Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true]
-  refine ⟨⟨⟨⟨⟨⟨hL, hlv⟩, hH⟩, hlow⟩, hhigh⟩, of_decide_eq_true hPb⟩, ?_⟩
+  refine ⟨⟨⟨⟨⟨⟨hL, hlv⟩, hH⟩, hlow⟩, hhigh⟩, hPb⟩, ?_⟩
   intro c hc
   exact hcells c hc
   

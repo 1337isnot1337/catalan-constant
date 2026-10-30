@@ -6,6 +6,16 @@
     "CatalanMeasure.GenD.Analytic.GapWeights"
   ],
   "conversion": "Prefix imports of vendored roots with Submission.",
+  "compatibility_patches": {
+    "CatalanMeasure.GenD.Cert.Assembly": [
+      {
+        "id": "lean-4.34.1-blockOK-ofS-boolean-proof",
+        "reason": "The Boolean equality goal uses hPb directly; no statement changes.",
+        "before": "refine \u27e8\u27e8\u27e8\u27e8\u27e8\u27e8hL, hlv\u27e9, hH\u27e9, hlow\u27e9, hhigh\u27e9, of_decide_eq_true hPb\u27e9, ?_\u27e9",
+        "after": "refine \u27e8\u27e8\u27e8\u27e8\u27e8\u27e8hL, hlv\u27e9, hH\u27e9, hlow\u27e9, hhigh\u27e9, hPb\u27e9, ?_\u27e9"
+      }
+    ]
+  },
   "files": [
     {
       "path": "CatalanCore/Uniform/Content/RankCertificate.lean",
@@ -592,8 +602,11 @@
     {
       "path": "CatalanMeasure/GenD/Cert/Assembly.lean",
       "source_sha256": "c01ab445bd72e2425b2ac07f203faf21d27a321372e6b793c8f060aac3fa81c6",
-      "converted_sha256": "90aad181f8e9e4fc1a5b30b24bcbbb195d39cf82503f024200167c95b43dccee",
-      "bytes": 8991
+      "converted_sha256": "a0224989505e6cda80479f695e6ede660cb9bc67a610e7024e86e8ccdfd6a4e5",
+      "bytes": 8973,
+      "compatibility_patches": [
+        "lean-4.34.1-blockOK-ofS-boolean-proof"
+      ]
     },
     {
       "path": "CatalanMeasure/GenD/Cert/CellLoc.lean",
