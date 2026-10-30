@@ -21,6 +21,28 @@ COMPATIBILITY_PATCHES = {
         'before': 'refine ⟨⟨⟨⟨⟨⟨hL, hlv⟩, hH⟩, hlow⟩, hhigh⟩, of_decide_eq_true hPb⟩, ?_⟩',
         'after': 'refine ⟨⟨⟨⟨⟨⟨hL, hlv⟩, hH⟩, hlow⟩, hhigh⟩, hPb⟩, ?_⟩',
     }],
+    'CatalanMeasure.GenD.Nonvanishing': [{
+        'id': 'isolate-elementary-prime-denominator-import',
+        'reason': 'Use the same two elementary denominator proofs in PrimeDenominator, avoiding unrelated fixed-48 numerical certificates; no theorem statement changes.',
+        'before': 'public import Submission.CatalanMeasure.SquareNonvanishing',
+        'after': 'public import Submission.Refinement.PrimeDenominator',
+    }, {
+        'id': 'use-isolated-prime-denominator-lemma',
+        'reason': 'Call the copied elementary lemma under its new namespace; the statement and proof are unchanged.',
+        'before': '(prime_mul_div_den_unit a hb hpb)',
+        'after': '(Refinement.prime_mul_div_den_unit a hb hpb)',
+    }],
+    'CatalanMeasure.GenD.Analytic.WeightedAtom': [{
+        'id': 'isolate-elementary-atom-measure-import',
+        'reason': 'Import the same determinant/measure facts from AtomMeasureFacts instead of the unrelated fixed-design Lemma6 proof; no theorem statement changes.',
+        'before': 'public import Submission.CatalanMeasure.Lemma6',
+        'after': 'public import Submission.Improvement.Fields.AtomMeasureFacts',
+    }, {
+        'id': 'use-isolated-atom-measure-lemmas',
+        'reason': 'Use the copied determinant/measure proofs under new names; all generic weighted-atom statements are unchanged.',
+        'before': 'rw [← hmat, abs_det_submatrix_equiv, pairMeasure_real_univ] at hdet',
+        'after': 'rw [← hmat, atom_abs_det_submatrix_equiv, atom_pairMeasure_real_univ] at hdet',
+    }],
 }
 
 

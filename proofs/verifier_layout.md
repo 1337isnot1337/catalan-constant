@@ -68,6 +68,18 @@ prove that the Lean code compiles. It also cannot certify the remote Git tree
 modes: the exact submitted commit must contain every intended Lean file at mode
 `100644`.
 
+After the closing source commit is published, fetch that exact commit into a
+bare Git repository and compare the Git objects directly:
+
+```sh
+python3 scripts/audit_published_lean.py --git-dir /path/to/bare-repository \
+  --commit FULL_40_DIGIT_COMMIT --manifest certificates/lean_source_audit.json
+```
+
+This checks that the published staged-source set, every source byte, every Git
+mode, and the published manifest itself match the frozen local snapshot. It
+does not check out or execute the published repository.
+
 ## Proof gate
 
 The final build must succeed and `#print axioms Race.bound` must report only

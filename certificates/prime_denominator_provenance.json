@@ -1,0 +1,22 @@
+{
+  "source_repository": "https://github.com/slitsey/catalan-irrationality-measure",
+  "source_commit": "aa2a42f4f3835347ad46608779e22dd52c2dc7bf",
+  "source_path": "CatalanMeasure/SquareNonvanishing.lean",
+  "new_path": "Submission/Refinement/PrimeDenominator.lean",
+  "original_namespace": "OAI.InternalCatalan",
+  "new_namespace": "CatalanMeasure.GenD.Refinement",
+  "theorems": {
+    "rat_div_den_unit": {
+      "statement_and_proof_byte_exact": true,
+      "sha256": "0199b2ce338df2a68655a35ac79e0c621b22dab5475d0b21d1a71ff99b74f686"
+    },
+    "prime_mul_div_den_unit": {
+      "statement_and_proof_byte_exact": true,
+      "sha256": "d60a574cd5f8545ff83c8b5398547fa115af96994cae5eb8b9674618815f7d1e"
+    }
+  },
+  "source_file_sha256": "c226d154c3d49c4c4bac41d2f6dc33da2b07c635828e714b4ff92058d0c0c720",
+  "source_git_blob_sha1": "0760b905b64b81d73b626ce3a013866531fdae38",
+  "helper_file_sha256": "543004208e44762042fda5ef3cf1716ab435516298a3d4c5ab511711bbb0a168",
+  "comparison": "Exact UTF-8 source bytes for each theorem statement and proof body, excluding trailing whitespace after the declaration."
+}

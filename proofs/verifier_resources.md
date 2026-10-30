@@ -26,11 +26,20 @@ The local arithmetic Lake process peaked at 907,264 KiB and had three active
 child Lean compilers when configured with `LEAN_NUM_THREADS=3`. The residual
 checks ran as two separately bounded compiler processes.
 
+A later one-worker retry measured about 3.1 GiB RSS for the heavier arithmetic
+module `CellP3`. Earlier `CellP1`/`CellP3` attempts were killed for memory pressure
+when two residual compilers, three arithmetic jobs, and a helper check overlapped
+locally. The heavy arithmetic cells were then retried sequentially. This is a
+concrete reason to bound overlapping local build jobs.
+
 Four residual compilers at the observed maximum would account for about
 8.13 GiB of summed RSS, or about 9 GiB including the observed Lake-controller
-peak. This provides useful expected headroom under the hosted limit. It is an
-estimate from observed processes, not a universal memory bound. Summed RSS can
-also count shared mappings more than once.
+peak. A heavier mixed wave with two arithmetic compilers at 3.1 GiB each and two
+residual compilers at 2.1 GiB each accounts for about 10.4 GiB before the
+controller and other overhead. These measured cases suggest headroom under the
+hosted limit, but neither is a universal memory bound or a guarantee that the
+scheduler runs at most four compilers. Summed RSS can also count shared mappings
+more than once.
 
 ## Why the certificate is split into modules
 
