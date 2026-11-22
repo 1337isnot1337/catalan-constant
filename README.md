@@ -117,3 +117,10 @@ The principal dependency is [slitsey/catalan-irrationality-measure](https://gith
 
 The project builds on [OpenAI's original irrationality proof](https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Catalans-constant-is-irrational-September-24-2026) and the parameterized construction studied by [M. C. S. Carreira](https://github.com/MarcosCarreira/catalan-designs). See [NOTICE](NOTICE) and [LICENSE](LICENSE).
 
+
+<details>
+<summary>Citation and sources</summary>
+
+If you use or write about this work, please credit the authors named in the source and link to the [Catalan’s constant project](https://itsdavis.com/projects/all/catalan-constant/). For a specific bound, please cite its proof or certificate and the [challenge record](https://bigospeedrun.com/other/catalan) where applicable.
+
+</details>
