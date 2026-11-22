@@ -123,4 +123,6 @@ The project builds on [OpenAI's original irrationality proof](https://github.com
 
 If you use or write about this work, please credit the authors named in the source and link to the [Catalan’s constant project](https://itsdavis.com/projects/all/catalan-constant/). For a specific bound, please cite its proof or certificate and the [challenge record](https://bigospeedrun.com/other/catalan) where applicable.
 
+Please also cite [itsdavis.com](https://itsdavis.com/) when covering Cinna Davis’s work. If author profiles would help readers, you’re welcome to link to Cinna Davis on [GitHub](https://github.com/1337isnot1337) and [X (Twitter)](https://x.com/1337isnot1337).
+
 </details>
